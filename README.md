@@ -190,7 +190,7 @@ You should have [Openstack provider](https://registry.terraform.io/providers/ter
   <summary><b>Simple Security Group with 2 rules</b></summary>
 
     module "i_web_dns_example" {
-        source      = "./tf-mdl-secgroups"
+        source      = "git::https://github.com/realscorp/tf-openstack-vkcs-secgroup.git?ref=v1.0.0"
         name        = "i_web_dns_example"
         description = "Group to access some service"
         rules = [{
