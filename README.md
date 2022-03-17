@@ -115,9 +115,9 @@ Module has been only tested to work with **VKCS** ([mcs.mail.ru](https://mcs.mai
                 protocol                = "tcp"
                 ports                   = ["80", "443"]
                 remote_ips = {
-                    "Office 1"   = "10.10.0.0/24"
-                    "Office 2"     = "10.20.0.0/24"
-                    "Office 3"     = "10.30.0.0/24"
+                    "Office 1"          = "10.10.0.0/24"
+                    "Office 2"          = "10.20.0.0/24"
+                    "Office 3"          = "10.30.0.0/24"
                     "Server"            = "10.40.10.1"
                     }
                 },
@@ -198,16 +198,16 @@ You should have [Openstack provider](https://registry.terraform.io/providers/ter
                 protocol                = "tcp"
                 ports                   = ["80", "443"]
                 remote_ips = {
-                    "Office 1"   = "10.10.0.0/24"
-                    "Office 2"     = "10.20.0.0/24"
-                    "Office 3"     = "10.30.0.0/24"
+                    "Office 1"          = "10.10.0.0/24"
+                    "Office 2"          = "10.20.0.0/24"
+                    "Office 3"          = "10.30.0.0/24"
                     }
                 },{
                 direction               = "ingress"
                 protocol                = "udp"
                 ports                   = ["53"]
                 remote_ips = {
-                    "All internal"   = "10.0.0.0/8"
+                    "All internal"      = "10.0.0.0/8"
                     }
                 }]
     }
@@ -221,11 +221,11 @@ You should have [Openstack provider](https://registry.terraform.io/providers/ter
         source  = "git::https://github.com/realscorp/tf-openstack-vkcs-secgroup.git?ref=v1.0.0"
         name    = "i_int_test"
         rules   = [{
-                    direction   = "ingress"
-                    protocol    = "tcp"
-                    ports       = ["80","443"]
+                    direction               = "ingress"
+                    protocol                = "tcp"
+                    ports                   = ["80","443"]
                     remote_ips = {
-                        "Office IT subnet" = "10.0.0.0/24"
+                        "Office IT subnet"  = "10.0.0.0/24"
                         }
                 }]
     }
@@ -286,12 +286,12 @@ You should have [Openstack provider](https://registry.terraform.io/providers/ter
         name = "i_int_ldap"
         description = "Group to access LDAP service"
         rules = [{
-                    direction = "ingress"
-                    protocol = "tcp"
-                    ports = ["389","636"]
+                    direction               = "ingress"
+                    protocol                = "tcp"
+                    ports                   = ["389","636"]
                     remote_ips = {
-                        "Office 1" = "10.10.0.0/16"
-                        "_SG_o_int_ldap" = module.o_int_ldap.id # We use prefix _SG_ to pass ID
+                        "Office 1"          = "10.10.0.0/16"
+                        "_SG_o_int_ldap"    = module.o_int_ldap.id # We use prefix _SG_ to pass ID
                         }
                     }
                 ]
@@ -301,12 +301,12 @@ You should have [Openstack provider](https://registry.terraform.io/providers/ter
         name = "o_int_test"
         description = "Egress group to access LDAP service"
         rules = [{
-                    direction = "egress"
-                    protocol = "tcp"
-                    ports = ["389","636"]
+                    direction       = "egress"
+                    protocol        = "tcp"
+                    ports           = ["389","636"]
                     remote_ips = {
-                        "dc1" = "10.1.0.10"
-                        "dc2" = "10.1.0.20"
+                        "dc1"       = "10.1.0.10"
+                        "dc2"       = "10.1.0.20"
                         }
                     }
                 ]
